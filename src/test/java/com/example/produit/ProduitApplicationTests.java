@@ -18,7 +18,7 @@ class ProduitApplicationTests {
 	//Test pour la création d'un produit
 	@Test
 	public void testCreateProduit(){
-		Produit prod= new Produit("Mac Mini",2200.500, new Date(2022,03,15));
+		Produit prod= new Produit("Ps5",2200.500, new Date(2022,03,15));
 		produitRepository.save(prod);
 	}
 
@@ -49,6 +49,21 @@ class ProduitApplicationTests {
 		for (Produit p:prods)
 			System.out.println(p);
 	}
+	@Test
+	public void testFindProduitByNom(){
+		List<Produit> prods = produitRepository.findByNomProduit("Ps4");
+		for(Produit p:prods)
+			System.out.println(p);
+	}
+
+	@Test
+	public void testFindProduitByNomContains(){
+		List<Produit> prods = produitRepository.findByNomProduitContains("P");
+		for(Produit p:prods)
+			System.out.println(p);
+	}
+
+
 
 
 }
